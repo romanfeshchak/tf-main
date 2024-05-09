@@ -37,7 +37,7 @@ module "gke_cluster" {
 
 }
 module "flux_bootstrap" {
-  source            = "github.com/romanfeshchak/tf-flux?ref=gke_auth"
+  source            = "github.com/romanfeshchak/tf-flux"
   github_repository = "${var.GITHUB_OWNER}/${var.FLUX_GITHUB_REPO}"
   private_key       = module.tls_private_key.private_key_pem
   github_token      = var.GITHUB_TOKEN
