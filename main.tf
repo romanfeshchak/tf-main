@@ -36,11 +36,10 @@ module "gke_cluster" {
 
 
 }
-module "flux_bootstrap" {
+module "flux_bootstrap" "terraincognitus" {
   source            = "github.com/romanfeshchak/tf-flux"
   github_repository = "${var.GITHUB_OWNER}/${var.FLUX_GITHUB_REPO}"
   private_key       = module.tls_private_key.private_key_pem
-  path              = var.TARGET_PATH
 }
 
 
