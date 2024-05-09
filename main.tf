@@ -10,7 +10,7 @@ module "github_repository" {
   repository_name          = var.FLUX_GITHUB_REPO
   public_key_openssh       = module.tls_private_key.public_key_openssh
   public_key_openssh_title = "terrash"
-  
+
 }
 
 
@@ -40,6 +40,7 @@ module "flux_bootstrap" {
   source            = "github.com/romanfeshchak/tf-flux"
   github_repository = "${var.GITHUB_OWNER}/${var.FLUX_GITHUB_REPO}"
   private_key       = module.tls_private_key.private_key_pem
+  path              = var.TARGET_PATH
 }
 
 
