@@ -5,8 +5,8 @@ module "tls_private_key" {
 
 module "github_repository" {
   source                   = "github.com/romanfeshchak/tf-github-repo"
-  github_owner             = var.GITHUB_OWNER
-  github_token             = var.GITHUB_TOKEN
+  GITHUB_OWNER             = var.GITHUB_OWNER
+  GITHUB_TOKEN             = var.GITHUB_TOKEN
   repository_name          = var.FLUX_GITHUB_REPO
   public_key_openssh       = module.tls_private_key.public_key_openssh
   public_key_openssh_title = "terrash"
