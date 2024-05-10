@@ -9,10 +9,9 @@ module "github_repository" {
   GITHUB_TOKEN             = var.GITHUB_TOKEN
   repository_name          = var.FLUX_GITHUB_REPO
   public_key_openssh       = module.tls_private_key.public_key_openssh
-  public_key_openssh_title = "terrash"
+  public_key_openssh_title = "terra-sh"
 
 }
-
 
 module "gke_cluster" {
   source                             = "github.com/romanfeshchak/terraform-gke-cluster"
@@ -34,8 +33,8 @@ module "gke_cluster" {
   GKE_CLUSTER_SERVICES_IP_RANGE_CIDR = var.GKE_CLUSTER_SERVICES_IP_RANGE_CIDR
   GKE_POOL_NAME                      = var.GKE_POOL_NAME
 
-
 }
+
 module "flux_bootstrap" {
   source            = "github.com/romanfeshchak/tf-flux"
   FLUX_GITHUB_REPO = "${var.GITHUB_OWNER}/${var.FLUX_GITHUB_REPO}"
